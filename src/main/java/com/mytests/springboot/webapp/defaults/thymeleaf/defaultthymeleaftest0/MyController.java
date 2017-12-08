@@ -2,6 +2,7 @@ package com.mytests.springboot.webapp.defaults.thymeleaf.defaultthymeleaftest0;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -26,5 +27,10 @@ public class MyController {
         model.addAttribute("title","next step");
         model.addAttribute("attr","you are here");
         return "step2";
+    }
+
+    @ModelAttribute("global_attr")
+    public String ma(){
+        return "my_global_attr";
     }
 }
