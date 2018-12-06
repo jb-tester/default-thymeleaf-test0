@@ -5,6 +5,9 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * *******************************
  * Created by Irina.Petrovskaya on 8/14/2017.
@@ -32,5 +35,13 @@ public class MyController {
     @ModelAttribute("global_attr")
     public String ma(){
         return "my_global_attr";
+    }
+
+    @ModelAttribute("listGlobalAttr1")
+    public List<? extends MyDataType> listGlobalAttr1(){
+
+        List<MyDataTypeImpl> mylist = new ArrayList<>();
+        mylist.add(new MyDataTypeImpl("aaa"));
+        return mylist;
     }
 }
