@@ -1,12 +1,15 @@
 package com.mytests.springboot.webapp.defaults.thymeleaf.defaultthymeleaftest0;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * *******************************
@@ -29,19 +32,29 @@ public class MyController {
     public String Method2(ModelMap model) {
         model.addAttribute("title","next step");
         model.addAttribute("attr","you are here");
+        model.addAttribute("next","index");
         return "step2";
     }
 
     @ModelAttribute("global_attr")
-    public String ma(){
+    public String ma(Model model){
+        
+        model.addAttribute("global_extra","does it work?");
         return "my_global_attr";
     }
 
     @ModelAttribute("listGlobalAttr1")
     public List<? extends MyDataType> listGlobalAttr1(){
-
         List<MyDataTypeImpl> mylist = new ArrayList<>();
         mylist.add(new MyDataTypeImpl("aaa"));
+        mylist.add(new MyDataTypeImpl("bbb"));
+        mylist.add(new MyDataTypeImpl("ccc"));
         return mylist;
+    }
+
+    @RequestMapping("/index")
+    public String index(ModelMap model) {
+        model.addAttribute("index_attr1", "hi");
+        return "index";
     }
 }

@@ -7,6 +7,7 @@
 <body>
   <h1 th:text="${attr}">text</h1>
   <h1 th:text="${global_attr}">text</h1>
+  <a th:href="@{${next}}">next</a>
   <th:block th:each="dataobj : ${listGlobalAttr1}" th:object="${dataobj}">
       <p th:text="'object ' + *{name} " class="problem">
       </p>

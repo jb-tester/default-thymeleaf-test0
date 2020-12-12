@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+    <link th:href="@{/styles/mainstyle.css}" rel="stylesheet" />
+    <script th:inline="javascript">
+        var attr_var = /*[[${index_attr1}]]*/;
+    </script>
+    <script type="text/javascript" th:src="@{/js/myscript.js}"></script>
+</head>
+<body>
+<h2>index page</h2>
+<p th:text="${index_attr1}">
+    <strong>check model attribute!</strong>
+</p>
+<p th:text="${global_extra}">
+    <strong>check global model attribute!</strong>
+</p>
+<button type="button" th:onclick="showAlert(attr_var)">show alert</button>
+<img src="../public/images/venice.jpg" th:src="@{/images/venice.jpg}" alt="venice"/>
+</body>
+</html>
